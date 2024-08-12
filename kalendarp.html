@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картинка по дням недели</title>
+</head>
+<body>
+    <h1>Сегодняшняя картинка:</h1>
+    <img id="weeklyImage" src="" alt="Картинка дня" width="300" height="300">
+
+    <script>
+        function getImageForDay(day) {
+            const images = {
+                1: "images/sa.png",   // Понедельник
+                3: "images/bog.png", // Среда
+                5: "images/an.png",   // Пятница
+                0: "images/podonok.png"    // Воскресенье
+            };
+            return images[day] || "images/default.png"; // Картинка по умолчанию
+        }
+
+        const today = new Date().getDay();
+        const imageSrc = getImageForDay(today);
+
+        document.getElementById("weeklyImage").src = imageSrc;
+    </script>
+</body>
+</html>
